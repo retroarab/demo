@@ -17,6 +17,7 @@ public class HelloApplication extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
             Scene scene = new Scene(root, 1080, 720);
             stage.initStyle(StageStyle.UNDECORATED);
+            /*
         root.setOnMousePressed(event -> {
             x = event.getSceneX();
             y= event.getSceneY();
@@ -26,10 +27,11 @@ public class HelloApplication extends Application {
             stage.setY(event.getScreenY()-y);
 
         });
-
+    */
         stage.setTitle("The Bomb Benchmark");
         stage.setScene(scene);
         stage.show();
+
     }
 
     public static void main(String[] args) {
