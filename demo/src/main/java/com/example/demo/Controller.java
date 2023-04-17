@@ -38,47 +38,58 @@ public class Controller implements Initializable {
 
     @FXML
     private Pane panel1;
+    @FXML
+    private Button useBTN;
+
 
     @FXML
     private Text textStat;
+
+
     @FXML
     private void handleClicks(ActionEvent event){
         //System.out.println((event.getSource() instanceof Button && ((Button)event.getSource()).getId().equals("Bench")));
 
-        if((event.getSource() instanceof Button && ((Button)event.getSource()).getId().equals("Bench"))){
-            System.out.println("ASD");
+        if(event.getSource()==Bench){ // The right way to test since event.getSrouce().equals(Bench) doesn't work
 
-            lblStat.setText("SA SE VADA BINEEEE");
-            textStat.setText("MUIEEEE DINAMO");
+            textStat.setText("Benchmarking");
+            useBTN.setVisible(true);
 
-            panel1.setBackground(new Background(new BackgroundFill(Color.rgb(63,43,99), CornerRadii.EMPTY, Insets.EMPTY)));
+            useBTN.setText("Begin Benchmarking");
+            //panel1.setBackground(new Background(new BackgroundFill(Color.rgb(63,43,99), CornerRadii.EMPTY, Insets.EMPTY)));
 
         }
         else if(event.getSource()==HSTR){
-            System.out.println("ASD");
 
-            lblStat.setText("SA SE VADA BINEEEE");
-            textStat.setText("MUIEEEE DINAMO");
-            panel1.setBackground(new Background(new BackgroundFill(Color.rgb(63,43,99), CornerRadii.EMPTY, Insets.EMPTY)));
+
+            lblStat.setText("History ");
+            textStat.setText("History of test done");
+
+            useBTN.setVisible(false);
         }
         else if(event.getSource()==CINFO){
-            System.out.println("ASD");
 
-            lblStat.setText("SA SE VADA BINEEEE");
-            textStat.setText("MUIEEEE DINAMO");
-            panel1.setBackground(new Background(new BackgroundFill(Color.rgb(63,43,99), CornerRadii.EMPTY, Insets.EMPTY)));
+
+            lblStat.setText("Computer Information");
+            textStat.setText("Get COmp INFO");
+            useBTN.setVisible(false);
+
         }
         else if(event.getSource()==ABOUT){
-            System.out.println("ASD");
 
-            lblStat.setText("SA SE VADA BINEEEE");
-            textStat.setText("MUIEEEE DINAMO");
-            panel1.setBackground(new Background(new BackgroundFill(Color.rgb(63,43,99), CornerRadii.EMPTY, Insets.EMPTY)));
+
+            lblStat.setText("About the Bomb Benchmark ");
+            textStat.setText("This is the about us section");
+            useBTN.setVisible(false);
+
         }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        lblStat.setText("About the Bomb Benchmark ");
+        textStat.setText("This is the about us section");
+        useBTN.setVisible(false);
 
     }
 }
