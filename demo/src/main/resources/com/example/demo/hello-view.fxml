@@ -83,7 +83,6 @@
             <Pane layoutX="-25.0" layoutY="-178.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: #FA2C56; -fx-background-radius: 70;" />
             <Pane layoutX="7.0" layoutY="139.0" prefHeight="445.0" prefWidth="815.0">
                <children>
-                  <Button fx:id="useBTN" layoutX="359.0" layoutY="172.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="102.0" prefWidth="98.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" />
                   <Label fx:id="lblStat" alignment="CENTER" layoutX="94.0" layoutY="54.0" prefHeight="55.0" prefWidth="590.0" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
@@ -92,6 +91,7 @@
                   <Text fx:id="textStat" fill="WHITE" layoutX="26.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="760.13671875" />
                </children>
             </Pane>
+            <Button fx:id="useBTN" layoutX="324.0" layoutY="579.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="69.0" prefWidth="180.0" style="-fx-background-color: #FA2C56;" styleClass="button4" stylesheets="@../css/fullpackstyling.css" textFill="WHITE" />
          </children>
       </Pane>
    </children>
