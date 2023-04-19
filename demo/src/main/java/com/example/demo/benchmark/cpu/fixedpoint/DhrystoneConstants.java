@@ -1,4 +1,4 @@
-package benchmark.cpu.fixedpoint;
+package com.example.demo.benchmark.cpu.fixedpoint;
 
 public class DhrystoneConstants {
 	public static final int ident1 = 0;

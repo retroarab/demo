@@ -1,6 +1,6 @@
-package benchmark.cpu.threading;
+package com.example.demo.benchmark.cpu.threading;
 
-import benchmark.IBenchmark;
+import com.example.demo.benchmark.IBenchmark;
 
 public class CPUThreading implements IBenchmark {
 

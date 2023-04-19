@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.almasb.fxgl.entity.action.Action;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,7 +9,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -98,6 +98,20 @@ public class Controller implements Initializable {
             useBTN.setVisible(false);
 
         }
+    }
+    boolean dhry=false,pi=false,thr=false;
+    @FXML
+    private void handleSelection(ActionEvent event){
+        if(event.getSource()==btnDhry){
+            dhry=!dhry; // toggle the value of dhry
+        }
+        else if(event.getSource()==btnPi){
+            pi=!pi; // toggle the value of pi
+        }
+        else if(event.getSource()==btnThr){
+            thr=!thr; // toggle the value of thr
+        }
+
     }
 
     @Override

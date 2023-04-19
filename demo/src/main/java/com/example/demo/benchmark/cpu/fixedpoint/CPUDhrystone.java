@@ -1,6 +1,6 @@
-package benchmark.cpu.fixedpoint;
+package com.example.demo.benchmark.cpu.fixedpoint;
 
-import benchmark.IBenchmark;
+import com.example.demo.benchmark.IBenchmark;
 
 public class CPUDhrystone extends GlobalVariables implements IBenchmark {
 

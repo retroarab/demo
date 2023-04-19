@@ -1,4 +1,4 @@
-package benchmark;
+package com.example.demo.benchmark;
 
 public interface IBenchmark {
 	

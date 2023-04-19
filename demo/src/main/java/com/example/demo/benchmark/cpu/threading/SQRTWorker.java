@@ -1,4 +1,4 @@
-package benchmark.cpu.threading;
+package com.example.demo.benchmark.cpu.threading;
 
 public class SQRTWorker implements Runnable {
 

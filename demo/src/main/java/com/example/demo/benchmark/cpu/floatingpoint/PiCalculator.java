@@ -1,4 +1,4 @@
-package benchmark.cpu.floatingpoint;
+package com.example.demo.benchmark.cpu.floatingpoint;
 
 import java.math.BigDecimal;
 

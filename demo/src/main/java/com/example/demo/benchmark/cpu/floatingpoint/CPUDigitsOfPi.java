@@ -1,6 +1,6 @@
-package benchmark.cpu.floatingpoint;
+package com.example.demo.benchmark.cpu.floatingpoint;
 
-import benchmark.IBenchmark;
+import com.example.demo.benchmark.IBenchmark;
 
 public class CPUDigitsOfPi implements IBenchmark {
 	private PiCalculator piCalculator;
