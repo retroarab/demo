@@ -66,7 +66,7 @@
             </VBox>
             <Pane layoutY="86.0" prefHeight="61.0" prefWidth="262.0" style="-fx-background-color: #FA2C56; -fx-background-radius: 5;">
                <children>
-                  <Label layoutX="25.0" layoutY="17.0" text="   The Bomb Benchmark" textFill="WHITE">
+                  <Label layoutX="2.0" layoutY="17.0" text="   The Bomb Benchmark" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -89,12 +89,14 @@
                      </font>
                   </Label>
                   <Text fx:id="textStat" fill="WHITE" layoutX="26.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="760.13671875" />
-                  <CheckBox fx:id="btnPi" layoutX="49.0" layoutY="278.0" mnemonicParsing="false" onAction="#handleSelection" text="Pi Calculator Benchmark" textFill="WHITE" />
-                  <CheckBox fx:id="btnDhry" layoutX="49.0" layoutY="223.0" mnemonicParsing="false" onAction="#handleSelection" text="Dhrystone Benchmark" textFill="WHITE" />
-                  <CheckBox fx:id="btnThr" layoutX="49.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleSelection" text="Threaded Benchmark" textFill="WHITE" />
+                  <CheckBox fx:id="btnPi" layoutX="49.0" layoutY="278.0" mnemonicParsing="false" onAction="#handleSelection" text="Pi Calculator Benchmark" textFill="WHITE" visible="false" />
+                  <CheckBox fx:id="btnDhry" layoutX="49.0" layoutY="223.0" mnemonicParsing="false" onAction="#handleSelection" text="Dhrystone Benchmark" textFill="WHITE" visible="false" />
+                  <CheckBox fx:id="btnThr" layoutX="49.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleSelection" text="Threaded Benchmark" textFill="WHITE" visible="false" />
                </children>
             </Pane>
-            <Button fx:id="useBTN" layoutX="324.0" layoutY="579.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="69.0" prefWidth="180.0" style="-fx-background-color: #FA2C56;" styleClass="button4" stylesheets="@../css/fullpackstyling.css" textFill="WHITE" />
+            <Button fx:id="useBTN" layoutX="324.0" layoutY="579.0" mnemonicParsing="false" onAction="#beginBenchmarking" prefHeight="69.0" prefWidth="180.0" style="-fx-background-color: #FA2C56;" styleClass="button4" stylesheets="@../css/fullpackstyling.css" textFill="WHITE" visible="false" />
+            <ProgressBar fx:id="progB" layoutX="303.0" layoutY="564.0" prefHeight="41.0" prefWidth="224.0" progress="0.0" visible="true" />
+
          </children>
       </Pane>
    </children>
