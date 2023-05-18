@@ -12,6 +12,7 @@ module com.example.demo {
     requires java.logging;
     requires java.management;
     requires jdk.management;
+    requires com.github.oshi;
 
     opens com.example.demo to javafx.fxml;
     exports com.example.demo;

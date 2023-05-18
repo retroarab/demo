@@ -1,5 +1,7 @@
 package com.example.demo;
 
+
+
 import com.almasb.fxgl.entity.action.Action;
 import com.example.demo.benchmark.BenchmarkRunner;
 import javafx.event.ActionEvent;
@@ -12,7 +14,13 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import oshi.*;
+import oshi.hardware.CentralProcessor;
+import oshi.hardware.Display;
+import oshi.hardware.HardwareAbstractionLayer;
+import oshi.software.os.OperatingSystem;
 
 public class Controller implements Initializable {
 
@@ -31,17 +39,6 @@ public class Controller implements Initializable {
     private Button HSTR;
 
     @FXML
-    private Label lblStat;
-
-    @FXML
-    private Pane panel1;
-    @FXML
-    private Button useBTN;
-
-
-    @FXML
-    private Text textStat;
-    @FXML
     private CheckBox btnDhry;
 
     @FXML
@@ -49,8 +46,24 @@ public class Controller implements Initializable {
 
     @FXML
     private CheckBox btnThr;
-    @FXML
 
+    @FXML
+    private Pane finB;
+
+    @FXML
+    private Label lblStat;
+
+    @FXML
+    private Pane panel1;
+
+    @FXML
+    private Text textFin;
+
+    @FXML
+    private Text textStat;
+
+    @FXML
+    private Button useBTN;
 
     @FXML
     private void handleClicks(ActionEvent event){
@@ -64,6 +77,7 @@ public class Controller implements Initializable {
             btnThr.setVisible(true);
             btnDhry.setVisible(true);
             useBTN.setText("Being Benchmarking !");
+            finB.setVisible(false);
 
         }
         else if(event.getSource()==HSTR){
@@ -71,7 +85,7 @@ public class Controller implements Initializable {
             btnPi.setVisible(false);
             btnThr.setVisible(false);
             btnDhry.setVisible(false);
-
+            finB.setVisible(false);
             lblStat.setText("History ");
             textStat.setText("History of tests done");
 
@@ -84,17 +98,31 @@ public class Controller implements Initializable {
             btnPi.setVisible(false);
             btnThr.setVisible(false);
             btnDhry.setVisible(false);
-
+            finB.setVisible(false);
+            SystemInfo systemInfo = new SystemInfo();
+            HardwareAbstractionLayer hardware = systemInfo.getHardware();
+            OperatingSystem os = systemInfo.getOperatingSystem();
+            CentralProcessor processor = hardware.getProcessor();
+            String cpuModel = processor.getProcessorIdentifier().getName();
+            int numCores = processor.getPhysicalProcessorCount();
+            long totalMemory = hardware.getMemory().getTotal();
+            long availableMemory = hardware.getMemory().getAvailable();
+            String osName = os.getManufacturer() + " " + os.getVersionInfo().getVersion();
+            Display[] displays = hardware.getDisplays().toArray(new Display[0]);
             lblStat.setText("Computer Information");
-            textStat.setText("Get COmp INFO");
+            textStat.setText("Operating System : \t" + os + "\n"+
+                            "RAM: Total :\t " + totalMemory + " bytes, Available : \t" + availableMemory + " bytes" +"\n" +
+                    "CPU: \t " + cpuModel + " (" + numCores + " cores)");
 
         }
         else if(event.getSource()==ABOUT){
             useBTN.setVisible(false);
+
             btnPi.setVisible(false);
             btnThr.setVisible(false);
             btnDhry.setVisible(false);
 
+            finB.setVisible(false);
 
             lblStat.setText("About the Bomb Benchmark ");
             textStat.setText("Welcome to the Bomb Benchmark, where we explode the limits of computer performance. Our project was developed by a group of university students with a passion for computer science and programming. Our team consists of four dedicated students who share a common goal of improving their programming skills and expanding their knowledge of computer architecture.\n" +
@@ -119,12 +147,14 @@ public class Controller implements Initializable {
 
     }
     @FXML
-    private void beginBenchmarking(ActionEvent event){
+    private void beginBenchmarking(ActionEvent event) throws InterruptedException {
         if(event.getSource()==useBTN){
             BenchmarkRunner Bench = new BenchmarkRunner();
             Bench.runBenchmarks(pi,thr,dhry);
-            proggresB.setVisible(true);
-
+            double score = Bench.getTotalScore();
+            useBTN.setVisible(false);
+            finB.setVisible(true);
+            textFin.setText("Congratulations ! You scored " + score + " points out of 10 ! \n");
 
 
         }
@@ -132,11 +162,11 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        finB.setVisible(false);
         lblStat.setText("About the Bomb Benchmark ");
         textStat.setText("Welcome to the Bomb Benchmark, where we explode the limits of computer performance. Our project was developed by a group of university students with a passion for computer science and programming. Our team consists of four dedicated students who share a common goal of improving their programming skills and expanding their knowledge of computer architecture.\n" +
                 "\n" +
                 "We believe that benchmarking tools play a crucial role in assessing the performance of computer systems and optimizing their efficiency. Therefore, we developed the Bomb Benchmark to provide a reliable and user-friendly tool for measuring the performance of CPUs and GPUs.");
-
 
     }
 }

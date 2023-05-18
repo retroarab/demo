@@ -4,6 +4,9 @@ import com.example.demo.Timing.*;
 import com.example.demo.benchmark.cpu.fixedpoint.CPUDhrystone;
 import com.example.demo.benchmark.cpu.floatingpoint.CPUDigitsOfPi;
 import com.example.demo.benchmark.cpu.threading.CPUThreading;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ProgressBar;
 
 
 public class BenchmarkRunner {
@@ -12,8 +15,9 @@ public class BenchmarkRunner {
     private double threadingScore;
     private double dhrystoneScore;
     private double totalScore;
-
+    @FXML
     public void runBenchmarks(boolean pi, boolean threading, boolean dhrystone) {
+
         double piTime = 0;
         double threadingTime = 0;
         double dhrystoneTime = 0;
@@ -106,9 +110,7 @@ public class BenchmarkRunner {
     }
 
     private double computeScore(double runningTime, double min, double max) {
-        return (9 * (runningTime - min) / (max - min)) + 1;
-
-        //return ((10 - 1) * (runningTime - min) / (max - min)) + 1;
+        return ((10 - 1) * (runningTime - min) / (max - min)) + 1;
     }
 
 
