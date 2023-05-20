@@ -42,7 +42,7 @@ public class BenchmarkRunner {
             for (i = 0; i < 10; i++) {
                 timer.start();
                 b.run();
-                sum += (double) timer.stop() /1000000;
+                sum += (double) timer.stop() /10000000;
             }
 
             piTime = sum / i;

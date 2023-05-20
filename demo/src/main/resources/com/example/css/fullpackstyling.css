@@ -13,6 +13,71 @@
     -fx-background-color : #2F2B43 ;
     -fx-background-radius :  30 0 0 30;
 }
+.table-cell {
+    -fx-text-fill: black;
+}
+
+.table-view {
+    -fx-background-color: white;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #FA2C56; /* Selected column header color */
+    -fx-border-color: #D6D6D6;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white; /* Header text color */
+}
+
+.table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: #D6D6D6;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #F7F7F7;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #7d6ccb; /* Selected row color */
+    -fx-text-fill: white; /* Selected text color */
+}
+
+.table-cell {
+    -fx-alignment: CENTER;
+    -fx-padding: 5;
+}
+
+.table-cell:empty {
+    -fx-background-color: transparent;
+}
+
+.table-view:focused .table-cell:selected {
+    -fx-background-color: #FA2C56; /* Selected cell color */
+}
+
+.table-view:focused .table-row-cell:selected .table-cell:empty {
+    -fx-background-color: transparent;
+}
+
+.table-view .table-cell:filled:selected {
+    -fx-background-color: #FA2C56; /* Selected cell color */
+}
+
+.table-view .table-cell:filled:hover {
+    -fx-background-color: #E2E2E2;
+}
+
+.table-view .table-cell:filled:selected:hover {
+    -fx-background-color: #7d6ccb; /* Selected cell color */
+}
+
 
 .button2
 {
@@ -85,56 +150,6 @@
     -fx-border-radius: 30;
 }
 
-.table-view .column-header,
-.table-view .column-header-background .filler {
-    -fx-cell-size : 20;
-    -fx-background-color:   #2D75E8;
-}
-.table-view .column-header .label{
-
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-alignment: CENTER_LEFT;
-}
-.table-view .cell{
-    -fx-cell-size: 30;
-    -fx-alignment: center-left;
-    -fx-text-fill: #000000;
-}
-
-.table-row-cell:selected {
-    -fx-background-color:  rgb(127, 172, 243);
-}
-.table-row-cell:selected .text {
-    -fx-fill : white ;
-
-}
-/* scroll bar starts here */
-
-/* The increment and decrement button CSS class of scrollbar */
-.table-view .increment-button ,.table-view .decrement-button {
-    -fx-background-color:transparent;
-    -fx-background-radius: 2em;
-
-}
-
-/* The main scrollbar **track** CSS class  */
-.table-view .scroll-bar:horizontal .track,
-.table-view .scroll-bar:vertical .track{
-    -fx-background-color: transparent;
-    -fx-border-color:derive(  #2D75E8,80%);
-    -fx-background-radius: 2em;
-    -fx-border-radius:2em;
-}
-
-/* The main scrollbar **thumb** CSS class which we drag every time (movable) */
-.table-view .scroll-bar:horizontal .thumb,
-.table-view .scroll-bar:vertical .thumb {
-    -fx-background-color:derive( #2D75E8,90%);
-    -fx-background-insets: 2, 0, 0;
-    -fx-background-radius: 2em;
-
-}
 
 /* chart properties */
 
