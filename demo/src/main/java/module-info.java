@@ -8,13 +8,12 @@ module com.example.demo {
             requires net.synedra.validatorfx;
             requires org.kordamp.ikonli.javafx;
             requires org.kordamp.bootstrapfx.core;
-            requires com.almasb.fxgl.all;
+           // requires com.almasb.fxgl.all;
             requires jdk.jfr;
     requires java.logging;
     requires java.management;
     requires jdk.management;
     requires com.github.oshi;
-    requires lwjgl;
     requires com.sun.jna;
 
     opens com.example.demo to javafx.fxml;

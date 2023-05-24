@@ -47,6 +47,8 @@ public class Controller implements Initializable {
 
     @FXML
     private Button CINFO;
+    @FXML
+    private Button exitB;
 
     @FXML
     private Button HSTR;
@@ -90,7 +92,12 @@ public class Controller implements Initializable {
     private TableView<DataObject> table;
     @FXML
     private ProgressBar progressBar;
-
+    @FXML
+    private void handleExit(ActionEvent event){
+        if(event.getSource()==exitB){
+            Platform.exit();
+        }
+    }
     @FXML
     private void handleClicks(ActionEvent event) throws IOException {
 
@@ -177,7 +184,34 @@ public class Controller implements Initializable {
                 String ops = System.getProperty("os.name").toLowerCase();
                 String gpu="";
                 if (ops.contains("linux")) {
-                    gpu=executeCommand("lspci | grep -i vga");
+                    try {
+                        // Create the ProcessBuilder
+                        ProcessBuilder processBuilder = new ProcessBuilder("bash", "-c", "lspci | grep -i vga | cut -d ':' -f 3\n");
+
+                        // Start the process
+                        Process process = processBuilder.start();
+
+                        // Read the output of the command
+                        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                        StringBuilder output = new StringBuilder();
+                        String line;
+                        while ((line = reader.readLine()) != null) {
+                            output.append(line).append("\n");
+                        }
+
+                        // Wait for the process to finish
+                        int exitCode = process.waitFor();
+
+                        if (exitCode == 0) {
+                            // Command executed successfully
+                             gpu = output.toString();
+                        } else {
+                            // Command execution failed
+                            gpu = "Command failed to execute";
+                        }
+                    } catch (IOException | InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 } else if (ops.contains("windows")) {
                     gpu=executeCommand("wmic path Win32_VideoController get Name");
                 } else {

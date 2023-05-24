@@ -11,13 +11,13 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <junit.version>5.9.1</junit.version>      </properties>
+    <junit.version>5.9.2</junit.version>      </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
-      <version>17.0.2</version>
+      <version>21-ea+17</version>
     </dependency>
 
 
@@ -25,16 +25,16 @@
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
-      <version>17.0.2</version>
+      <version>21-ea+17</version>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-web</artifactId>
-      <version>17.0.2</version>
+      <version>21-ea+17</version>
     </dependency>    <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-media</artifactId>
-      <version>17.0.2</version>
+      <version>21-ea+17</version>
     </dependency>    <dependency>
       <groupId>org.controlsfx</groupId>
       <artifactId>controlsfx</artifactId>
@@ -42,7 +42,7 @@
     </dependency>    <dependency>
       <groupId>com.dlsc.formsfx</groupId>
       <artifactId>formsfx-core</artifactId>
-      <version>11.5.0</version>
+      <version>11.6.0</version>
       <exclusions>
         <exclusion>
           <groupId>org.openjfx</groupId>
@@ -70,7 +70,7 @@
     </dependency>    <dependency>
       <groupId>eu.hansolo</groupId>
       <artifactId>tilesfx</artifactId>
-      <version>17.1.15</version>
+      <version>17.1.17</version>
       <exclusions>
         <exclusion>
           <groupId>org.openjfx</groupId>
